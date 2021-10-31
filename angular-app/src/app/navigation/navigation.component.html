@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="">MEAN Games
+                <span class="visually-hidden">(current)</span>
+            </a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="games">Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="register">Register</a>
+          </li>
+   
+      
+        </ul>
+        <div class="col-xs-6">
+          <form ng-if="!isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="login()">
+            <div class="form-group" ng-class="{'has-error': err}">
+              <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+            </div>
+            <div class="form-group" ng-class="{'has-error': vm.err}">
+              <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none">
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Login</button>
+          </form>
+        </div>
+        <!-- <ul ng-if="vm.isLoggedIn()" class="new navbar-nav navbar-right">
+          <li><p class="navbar-text">Welcome {{loggedInUser}}</p></li>
+          <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
+        </ul> -->
+      </div>
+    </div>
+  </nav>

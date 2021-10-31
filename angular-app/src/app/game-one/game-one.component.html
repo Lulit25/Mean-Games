@@ -1,0 +1,56 @@
+<h3 style="color:goldenrod; font-family: Georgia, 'Times New Roman', Times, serif;">Information about game:</h3>
+<p><h3 >{{game.title | uppercase}} - <span *ngFor = "let star of rating " style="color:goldenrod; font-family: Georgia, 'Times New Roman', Times, serif;">  &#9733; </span></h3>
+
+<h5>Year: {{game.year}}</h5>
+<h5>Price: {{game.price}}</h5>
+<h5>Minimum players: {{game.minPlayers}}</h5>
+<h5>Maximum players: {{game.maxPlayers}}</h5>
+
+<form #updateGameForm="ngForm" (ngSubmit)=onSubmit(updateGameForm) novalidate>
+    <h2 style="color:goldenrod; font-family: Georgia, 'Times New Roman', Times, serif;">Update Game</h2>
+
+    <div>
+        <label for="Title" class="col-sm-1 form-label"> Title: </label>
+        <input class="col-sm-3" type="text" name="title" ngModel placeholder="Title" required style="color:black" />
+        <span style="color:red"
+            *ngIf="updateGameForm.controls.title.invalid &&(updateGameForm.controls.title.dirty||updateGameForm.controls.title.dirty)">Please
+            provide Title</span>
+    </div><br>
+    <div>
+        <label for="Price" class="col-sm-1 form-label"> Price:</label>
+        <input class="col-sm-3" type="text" name="price" ngModel placeholder="Price" required style="color:black" />
+        <span style="color:red"
+            *ngIf="updateGameForm.controls.price.invalid &&(updateGameForm.controls.price.dirty||updateGameForm.controls.price.dirty)">Please
+            provide Price</span>
+    </div><br>
+    <div>
+        <label for="Year" class="col-sm-1 form-label"> Year:</label>
+        <input class="col-sm-3" type="text" name="year" ngModel placeholder="Year" required style="color:black" />
+
+        <span style="color:red"
+            *ngIf="updateGameForm.controls.year.invalid &&(updateGameForm.controls.year.dirty||updateGameForm.controls.year.dirty)">Please
+            provide Year</span>
+    </div><br>
+    <div>
+        <label for="Minimum age" class="col-sm-1 form-label">Minimum age: </label>
+
+        <input class="col-sm-3" type="text" name="minAge" ngModel placeholder="Minimum Age" style="color:black" />
+    </div><br>
+    <div>
+        <label for="Rate" class="col-sm-1 form-label">Rate: </label>
+        <input class="col-sm-3" type="text" name="rate" ngModel placeholder="Rate" style="color:black" />
+    </div><br>
+    <div>
+        <label for="Minimum Players" class="col-sm-1 form-label">Minimum Players: </label>
+        <input class="col-sm-3" type="text" name="minPlayers" ngModel placeholder="Minimum Players"
+            style="color:black" />
+    </div><br>
+    <div>
+        <label for="Maximum Players" class="col-sm-1 form-label">Maximum Players: </label>
+        <input class="col-sm-3" type="text" name="maxPlayers" ngModel placeholder="Maximum Players"
+            style="color:black" />
+    </div><br>
+    <button type="submit" [disabled]="updateGameForm.invalid" class=" btn-lg btn btn-secondary"
+        style="margin-right: 15px;">Save</button>
+    <button type="button" (click)="onClear(updateGameForm)" class=" btn-lg btn btn-secondary">Clear</button>
+</form>

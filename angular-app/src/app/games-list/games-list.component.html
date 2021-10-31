@@ -1,0 +1,71 @@
+<div>
+  <form class="d-flex" >
+      <input class=" col-sm-3 me-sm-2" type="text" name="search" placeholder="Search" [(ngModel)]="SearchText"
+          style="float: right; margin-left: 75%;">
+  </form>
+</div>
+<h1 style="color:goldenrod; font-family: Georgia, 'Times New Roman', Times, serif;">List of Games</h1>
+
+<ul>
+    <li *ngFor="let game of games | filter:SearchText" style="list-style-type: none;">
+        <div class="card border-primary mb-3" style="max-width: 60rem;">
+            <div class="card-header">Game</div>
+            <div class="card-body">
+                <h4 class="card-title"><a style="text-decoration: none; color:rgb(214, 195, 146)"
+                        routerLink="/games/{{game._id}}"> {{game.title}} </a></h4>
+                <p class="card-text">Explore the amazing {{game.title}} with just {{game.price | currency}} </p>
+                <button type="button" class="btn btn-secondary  col-sm-1" (click)="deleteGame(game._id)">Delete</button>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<form #addGameForm="ngForm" (ngSubmit)=onSubmit(addGameForm) novalidate>
+    <h2 style="color:goldenrod; font-family: Georgia, 'Times New Roman', Times, serif;">Add New Game</h2>
+    <div>
+        <label for="Title" class="col-sm-1 form-label"> Title: </label>
+        <input class="col-sm-3" type="text" name="title" ngModel placeholder="Title" required style="color:black" />
+        <span style="color:red"
+            *ngIf="addGameForm.controls.title.invalid &&(addGameForm.controls.title.dirty||addGameForm.controls.title.dirty)">Please
+            provide Title</span>
+    </div><br>
+    <div>
+        <label for="Price" class="col-sm-1 form-label"> Price:</label>
+        <input class="col-sm-3" type="text" name="price" ngModel placeholder="Price" required style="color:black" />
+        <span style="color:red"
+            *ngIf="addGameForm.controls.price.invalid &&(addGameForm.controls.price.dirty||addGameForm.controls.price.dirty)">Please
+            provide Price</span>
+    </div><br>
+    <div>
+        <label for="Year" class="col-sm-1 form-label"> Year:</label>
+        <input class="col-sm-3" type="text" name="year" ngModel placeholder="Year" required style="color:black" />
+
+        <span style="color:red"
+            *ngIf="addGameForm.controls.year.invalid &&(addGameForm.controls.year.dirty||addGameForm.controls.year.dirty)">Please
+            provide Year</span>
+    </div><br>
+    <div>
+        <label for="Minimum age" class="col-sm-1 form-label">Minimum age: </label>
+
+        <input class="col-sm-3" type="text" name="minAge" ngModel placeholder="Minimum Age" style="color:black" />
+    </div><br>
+    <div>
+        <label for="Rate" class="col-sm-1 form-label">Rate: </label>
+        <input class="col-sm-3" type="text" name="rate" ngModel placeholder="Rate" style="color:black" />
+    </div><br>
+    <div>
+        <label for="Minimum Players" class="col-sm-1 form-label">Minimum Players: </label>
+        <input class="col-sm-3" type="text" name="minPlayers" ngModel placeholder="Minimum Players"
+            style="color:black" />
+    </div><br>
+    <div>
+        <label for="Maximum Players" class="col-sm-1 form-label">Maximum Players: </label>
+        <input class="col-sm-3" type="text" name="maxPlayers" ngModel placeholder="Maximum Players"
+            style="color:black" />
+    </div><br>
+
+
+    <button type="submit" [disabled]="addGameForm.invalid" class=" btn-lg btn btn-secondary"
+        style="margin-right: 15px;">Save</button>
+    <button type="button" (click)="onClear(addGameForm)" class=" btn-lg btn btn-secondary">Clear</button>
+</form>

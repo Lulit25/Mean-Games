@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  server:
+    build: .
+    image: meanstack_backend
+    ports:
+      - '3000:3000'
+    links:
+      - mongo-db
+
+  client:
+    build: angular-app
+    image: meanstack_frontend
+    ports:
+      - '4200:4200'

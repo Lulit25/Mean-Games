@@ -1,0 +1,48 @@
+<h2 style="color:goldenrod; text-align: center;  font-family: Georgia, 'Times New Roman', Times, serif;">Welcome to MEAN
+    Games</h2>
+    <div *ngIf="err" class="alert alert-danger" role="alert">
+        {{err}}
+    </div>
+<div style="margin:auto; text-align: center; width:80%; height:100%; margin-top:4%">
+    <form #registrationForm="ngForm" (ngSubmit)= onSubmit(registrationForm) novalidate>
+        <h2 style="color:goldenrod; padding:10px;  font-family: Georgia, 'Times New Roman', Times, serif;">Register</h2>
+        <div>
+            <label for="fullname" class="col-sm-1"> Name: </label>
+            <input id="name" class="col-sm-3" type="text" name="name" ngModel placeholder="Name" required
+                style="color:black" />
+            <span style="color:red"
+                *ngIf="registrationForm.controls.name.invalid &&(registrationForm.controls.name.dirty||registrationForm.controls.name.dirty)">Please
+                provide name</span>
+        </div><br>
+        <div>
+            <label for="username" class="col-sm-1 form-label"> User name: </label>
+            <input class="col-sm-3" type="text" name="username" id="username" placeholder="user name" ngModel required
+                style="color:black" />
+            <span style="color:red"
+                *ngIf="registrationForm.controls.name.invalid &&(registrationForm.controls.name.dirty||registrationForm.controls.name.dirty)">Please
+                provide User Name</span>
+        </div><br>
+        <div>
+            <label for="password" class="col-sm-1 form-label">password:</label>
+            <input class="col-sm-3" type="password" name="password" style="color:black" id="password"
+                placeholder=" password" placeholder="Password" ngModel />
+            <span style="color:red"
+                *ngIf="registrationForm.controls.name.invalid &&(registrationForm.controls.name.dirty||registrationForm.controls.name.dirty)">Please
+                provide password</span>
+        </div><br>
+        <div>
+
+            <label for="password" class="col-sm-1 form-label"> Confirm password: </label>
+            <input class="col-sm-3" type="password" name="passwordRepeat" id="passwordRepeat" style="color:black"
+                id="password" placeholder="Password" ngModel />
+            <span style="color:red"
+                *ngIf="registrationForm.controls.name.invalid &&(registrationForm.controls.name.dirty||registrationForm.controls.name.dirty)">Please
+                provide password</span>
+        </div><br>
+        <button type="submit" [disabled]="registrationForm.invalid" class=" btn-lg btn btn-secondary"
+            style="margin-right: 15px;">Register</button>
+        <button type="button" (click)="onClear(registrationForm)" class=" btn-lg btn btn-secondary">Clear</button>
+
+    </form>
+    <br>
+</div>

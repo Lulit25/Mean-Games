@@ -1,0 +1,32 @@
+{
+  "name": "mean_games",
+  "version": "1.0.0",
+  "description": "Mean game app using mongoose",
+  "main": "app.js",
+  "scripts": {
+    "startBackend":"node app.js",
+    "startFrontend": "cd ./public/angular-app/ && npm start",
+     "start": "npm-run-all --parallel startBackend startFrontend",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lulit25/Mean-Games.git"
+  },
+  "author": "Lulit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lulit25/Mean-Games/issues"
+  },
+  "homepage": "https://github.com/Lulit25/Mean-Games#readme",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.1.2",
+    "mongoose": "^6.0.8",
+    "npm-run-all": "^4.1.5"
+  }
+}
